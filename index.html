@@ -650,6 +650,11 @@ function stopRec() {
   if (txt) txt.textContent = '点击开始语音录入';
 }
 
+/* ─── AI 评分配置 ─── */
+var ARK_KEY   = 'aab0be94-51a8-4916-8046-7ffb4b311c1c';
+var ARK_MODEL = 'doubao-1-5-pro-32k-250115';
+var ARK_URL   = 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
+
 /* ─── 提交评分 ─── */
 async function doSubmit() {
   if (isRecording) stopRec();
@@ -657,9 +662,15 @@ async function doSubmit() {
   if (!answer) { alert('请先输入或录制你的回答'); return; }
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
-  btn.textContent = '评分中...';
+  btn.textContent = 'AI评分中...';
+  let result;
   try {
-    const result = keywordScore(currentQ.points, answer);
+    result = await aiScore(currentQ, answer);
+  } catch(e) {
+    result = keywordScore(currentQ.points, answer);
+    result.aiError = true;
+  }
+  try {
     records.push({ qid: currentQ.id, score: result.score, ts: Date.now() });
     lsSet('practiceRecords', JSON.stringify(records));
     renderResult(result, answer);
@@ -672,7 +683,36 @@ async function doSubmit() {
   }
 }
 
-/* ─── 关键词评分 ─── */
+/* ─── AI 评分（豆包） ─── */
+async function aiScore(q, answer) {
+  const prompt = `你是Tesla延保销售话术培训评分助手。
+
+【练习场景】${q.scenario}
+【标准参考答案】${q.answer}
+【核心评分要点】${q.points}
+【学员回答】${answer}
+
+请从以下三个维度评分（总分100分）：
+1. 关键信息覆盖（40分）：是否涵盖了核心卖点和关键论据
+2. 表达自然流畅（30分）：是否贴近真实销售对话，语言自然
+3. 销售推动力（30分）：是否有效引导客户，语气笃定有说服力
+
+只返回如下JSON，不要任何额外内容：
+{"score":总分,"feedback":"一句话总体评价","strengths":["优点1","优点2"],"improvements":["建议1","建议2"]}`;
+
+  const resp = await fetch(ARK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + ARK_KEY },
+    body: JSON.stringify({ model: ARK_MODEL, messages: [{ role: 'user', content: prompt }], temperature: 0.3 })
+  });
+  if (!resp.ok) throw new Error('API ' + resp.status);
+  const data = await resp.json();
+  const text = data.choices[0].message.content.trim();
+  const json = JSON.parse(text.replace(/^```json\s*/,'').replace(/```$/,''));
+  return { score: json.score, feedback: json.feedback, strengths: json.strengths||[], improvements: json.improvements||[], aiMode: true };
+}
+
+/* ─── 关键词评分（网络异常备用） ─── */
 function keywordScore(points, answer) {
   const pts = points.split(',').map(p=>p.trim()).filter(Boolean);
   const matched = pts.filter(p => answer.includes(p));
@@ -749,7 +789,9 @@ function renderResult(r, userAnswer) {
       <div class="score-feedback">${r.feedback}</div>
     </div>
 
-    <div class="points-bar-wrap">
+    ${r.aiMode ? `<div class="points-bar-wrap" style="text-align:center;padding:10px 16px;">
+      <span style="font-size:12px;color:#aeaeb2;font-weight:700;letter-spacing:0.5px;">✦ 豆包 AI 智能评分</span>
+    </div>` : `<div class="points-bar-wrap">
       <div class="points-bar-header">
         <span class="points-bar-label">关键要点覆盖</span>
         <span class="points-bar-count" style="color:${color}">${matched.length} / ${total} 个</span>
@@ -757,7 +799,7 @@ function renderResult(r, userAnswer) {
       <div class="points-bar-track">
         <div class="points-bar-fill" style="width:${barPct}%;background:${color}"></div>
       </div>
-    </div>
+    </div>`}
 
     <div class="res-card str">
       <div class="res-card-title">✓ 做得好的地方</div>
