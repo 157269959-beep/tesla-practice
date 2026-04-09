@@ -669,6 +669,7 @@ async function doSubmit() {
   } catch(e) {
     result = keywordScore(currentQ.points, answer);
     result.aiError = true;
+    result.aiErrorMsg = e.message || String(e);
   }
   try {
     records.push({ qid: currentQ.id, score: result.score, ts: Date.now() });
@@ -792,6 +793,7 @@ function renderResult(r, userAnswer) {
     ${r.aiMode ? `<div class="points-bar-wrap" style="text-align:center;padding:10px 16px;">
       <span style="font-size:12px;color:#aeaeb2;font-weight:700;letter-spacing:0.5px;">✦ 豆包 AI 智能评分</span>
     </div>` : `<div class="points-bar-wrap">
+      ${r.aiError ? `<div style="font-size:11px;color:#cc0000;margin-bottom:8px;">AI连接失败（${r.aiErrorMsg}），已使用关键词评分</div>` : ''}
       <div class="points-bar-header">
         <span class="points-bar-label">关键要点覆盖</span>
         <span class="points-bar-count" style="color:${color}">${matched.length} / ${total} 个</span>
