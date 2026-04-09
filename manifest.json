@@ -1,0 +1,16 @@
+{
+  "name": "Tesla延保销售陪练",
+  "short_name": "延保陪练",
+  "description": "Tesla延保销售话术练习，提升客户成交率",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f2f2f7",
+  "theme_color": "#cc0000",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
