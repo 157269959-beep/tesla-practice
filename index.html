@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Tesla延保销售陪练</title>
 <meta name="theme-color" content="#cc0000">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="延保陪练">
-<link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon.svg">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
@@ -804,10 +801,6 @@ function toggleExpand(id, btn) {
       showScreen('list');
     }
   } catch(e) {}
-  // 注册 Service Worker（PWA 离线支持）
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').catch(function(){});
-  }
 })();
 </script>
 </body>
