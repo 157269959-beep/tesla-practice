@@ -339,7 +339,7 @@ const QUESTIONS = [
     title: "场景一：客户说「太贵了」",
     scenario: "客户表示延保费用太贵，不想购买。",
     answer: "特别理解您，现在每个人都想把钱花在刀刃上。如果您打算继续用车，延保就是帮您省钱的。特斯拉的保修分为两部分：一个是大电池电机的保修8年16万公里，一个是整车保修4年8万公里，是这个即将到期了。除了电池和电机这样的大件，电控系统、高压线束、车载充电机，还有智能驾驶相关的传感器、控制器这些，都是技术含量高价格贵的部件，出保后但凡出现故障都要花大钱去修。既然打算继续用车，未来3到5年里，这些部件随着使用时间增加，老化磨损的概率只会越来越高。费用折算下来，比如选个4年8万公里的方案，平均到每月也就几百块，比其他车加油和保养成本都低。但真要是哪个部件出问题，一次维修就可能赚回来。之前有位车主过保后，一个充电器器件坏了，换一个原厂配件要小1万。延保就像我们的车险一样，车险应对的是短时间的意外风险，延保保障的就是长时间使用带来的老化风险，购买延保后，用车风险特斯拉为您兜底。您看延保真的是能帮您省不少钱，我帮您办理一个吧！",
-    points: "延保就是帮您省钱的,电控系统、高压线束,每月也就几百块,一次维修就可能赚回来,充电器器件坏了,车险一样,帮您办理",
+    points: "延保就是帮您省钱的,即将到期,每月几百,一次维修就赚回来,充电器故障,车险,帮您办理",
     tips: "快问快答：真省钱。先认同，再算账，再案例，最后推动"
   },
   {
@@ -348,7 +348,7 @@ const QUESTIONS = [
     title: "场景二：客户说「再想想/要商量一下」",
     scenario: "客户表示需要和家人商量后再决定是否购买延保，暂时不想做决定。",
     answer: "完全理解，您想要跟家人商量一下也是很正常的。但是如果您还继续用车，作为服务顾问，我真诚的建议延保是一定得买的，咱们只需要考虑2年还是4年。我也提醒一下您：延保必须在保期内办，过了就系统锁死，办不了了。平时生活忙，一商量起来容易耽搁，错过就真没了。为了帮您更清晰地决定，我想先问问：您或者您家人最犹豫的是哪部分？比如是价格、保障范围，还是觉得短期内用不上？您方便的话，可以给家人打个电话，我来给您的家人介绍一下这个服务，更好的回答大家的问题，您看好不好？我添加下您的微信，把保障清单和优惠细节发您微信，方便您和家人讨论，如果家人有疑问随时可以沟通。",
-    points: "一定得买的,2年还是4年,系统锁死,最犹豫的是哪部分,给家人打个电话,添加下您的微信",
+    points: "一定要买,2年还是4年,保期内办,系统锁死,识别顾虑,加微信",
     tips: "先假设成交（2年还是4年），再识别顾虑，不要等客户主动"
   },
   {
@@ -357,7 +357,7 @@ const QUESTIONS = [
     title: "场景三：客户说「车质量好/开得少，不需要」",
     scenario: "客户认为Tesla质量好，或者自己开车少，觉得不需要购买延保。",
     answer: "的确，您的用车频次不高，车辆养护也挺不错，觉得公里数低就不会坏这个想法很正常；但事实是即使不开，零配件也会自然老化，甚至老化速度更快，这就像手机即使不常用，电池也会逐渐衰减一样。质保不仅限公里数，还规定年份，出保后发生故障的概率是一样的。有个点想跟您聊聊，就是车这产品，零件老化其实不光看开了多少，更看放了多久。车停着的时候，橡胶件比如高压线束的密封圈、水管接口，会慢慢老化变硬，电子元件长时间静置，再加上南方的高温高湿天气，反而可能因为受潮、电压不稳出小问题。之前有位车主一年就开几千公里，结果过保后发现充电接口的控制模块坏了，就是因为长时间没插拔，内部触点氧化了，这种放出来的问题和开多开少关系不大，但概率其实和车龄成正比。就算开得少，花这点钱换未来三五年的踏实，其实挺值的，我帮您办理一个吧！",
-    points: "零配件也会自然老化,电池也会逐渐衰减,不仅限公里数,高温高湿天气,充电接口的控制模块坏了,内部触点氧化,帮您办理",
+    points: "放了多久,质保限年份,高温高湿,橡胶件老化,触点氧化,三五年踏实,帮您办理",
     tips: '强调"放了多久"而非"开了多少"，南方气候是有力论据'
   },
   {
@@ -366,7 +366,7 @@ const QUESTIONS = [
     title: "场景四：客户说「出保去外面修」",
     scenario: "客户表示出保后打算去外面的维修店修车，不需要官方延保。",
     answer: "非常理解您有这样的想法，我当时开油车的时候出保也是在外面修的，但是电车真的不一样，您出保了去外面修我真的有风险，说实话我真的不放心呀。您想啊，外面的维修店不管多熟，终究是要盈利的，对吧？特斯拉的配件仅供直营和授权门店，外面用的配件可能是翻新件、拆车件、副厂件，咱们肉眼根本分不清。而且维修时为了提高效率多接单，可能会简化一些流程，比如有些高压部件拆装厂家要求必须做绝缘检测，但外面师傅可能觉得熟门熟路省一步，这一步省了后期万一出安全隐患谁来担责呢？您在外面修，买的是修一次的过程，修完了就是修完了。延保买的是给您的车辆兜底。新能源车的高压电控、智能模块技术更新快，外面的师傅按老经验来，反而可能埋下新问题。您现在还在保期内，办原厂延长保修，等于把这些用车中可能会有的风险全都转嫁给厂家了，厂家标准更严苛，合同保障比人情更靠谱。",
-    points: "电车真的不一样,翻新件、拆车件、副厂件,绝缘检测,给您的车辆兜底,按老经验来,转嫁给厂家",
+    points: "不放心,翻新件,副厂件,绝缘检测,兜底,厂家合同比人情靠谱",
     tips: '用真诚口吻说"真的不放心"，拉近距离后再讲风险'
   },
   {
@@ -375,7 +375,7 @@ const QUESTIONS = [
     title: "场景五：「故障率高吗？什么容易坏？」",
     scenario: "客户询问Tesla过保后故障率是否很高，或者问哪些零件容易坏。",
     answer: "您问这个问题，其实正好说到了延保的价值，不是说车子容易坏，而是时间和使用带来的风险是客观提升的，就像咱们买手机，刚买时很少出问题，但用了三五年后，电池续航下降、零件老化的概率总会比新机高，汽车作为更复杂的机械电器结合体，道理是一样的。特斯拉的核心部件比如电池、电机，可靠性一直处于行业前列。但零件老化不光看开了多少，更看放了多久。南方的高温高湿天气，车停着的时候橡胶件会慢慢老化，电子元件长时间静置，反而可能因为受潮、电压不稳出小问题。之前有位车主一年就开几千公里，过保后发现充电接口的控制模块坏了，就是因为长时间没插拔，内部触点氧化了，概率和车龄成正比。延保的作用就是把这种小概率但高成本的风险提前化解掉。延保就像我们的车险一样，购买延保后，用车风险特斯拉为您兜底。您看延保真的是能帮您省不少钱，我帮您办理一个吧。",
-    points: "风险是客观提升的,行业前列,高温高湿天气,充电接口的控制模块坏了,小概率但高成本,车险一样,帮您办理",
+    points: "风险客观提升,行业前列,高温高湿,放了多久,触点氧化,小概率高成本,帮您办理",
     tips: "不要直接回答故障率数字，转为谈时间和气候对零件的影响"
   },
   {
@@ -384,7 +384,7 @@ const QUESTIONS = [
     title: "场景六：客户「冷面拒绝/觉得没必要」",
     scenario: "客户对延保完全没兴趣，态度冷淡，觉得延保没有必要。",
     answer: "因为我见了太多出保后外面维修失败的案例，所以给您讲这么多也是想让您能充分了解外面维修的风险，希望您后续有任何问题也能回到体系内维修。而给您介绍延保，就是希望您想回来维修的时候没有经济上的任何顾虑。外面的维修店不管多熟，终究是要盈利的，特斯拉配件只供直营和授权门店，外面多是翻新件、拆车件或副厂件。原厂维修步骤非常严格，外面的门店为效率多接单，可能简化流程，这步省了后期出安全问题，谁负责呢？您在外面修，买的是修一次的过程，修完了就是修完了。延保买的是给您的车辆兜底。延保就像我们的车险一样，车险应对的是意外风险，延保保障的就是长时间使用带来的老化风险，购买延保后，用车风险特斯拉为您兜底。我相信您买车险肯定不是对自己的驾驶技术不放心，咱们一定是为了买个踏实，花小钱保省心，您说是不是这个理？",
-    points: "外面维修失败的案例,翻新件、拆车件或副厂件,简化流程,给您的车辆兜底,车险一样,花小钱保省心",
+    points: "回体系内维修,无经济顾虑,配件成本,老经验,车险,花小钱买踏实",
     tips: "先建立情感连接，说见过太多案例，再用车险类比建立概念"
   },
   {
@@ -393,7 +393,7 @@ const QUESTIONS = [
     title: "场景七：客户说「你们就是想推销延保」",
     scenario: "客户认为服务顾问介绍延保只是为了推销产品，表示怀疑和抵触。",
     answer: "其实我们给您介绍延保的核心目的是帮您规避后期用车的风险，主要是因为我们见过太多客户出保后觉得维修成本高，去外面修又修不好的情况了，最后花的钱比延保贵多了。坦白跟您说，就算没有这次活动，我也要强烈推荐您购买延保，延保是真的省钱。除了电池和电机这样的大件，电控系统、高压线束、车载充电机，还有智能驾驶相关的传感器、控制器这些，都是技术含量高价格贵的部件，出保后但凡出现故障都要花大钱去修。费用折算下来，比如选个4年8万公里的方案，平均到每月也就几百块，但真要是哪个部件出问题，一次维修就可能赚回来。我也是担心有一天您跑到我对面来说，延保的活动你没有给我介绍清楚，害我到服务中心维修花了几万，到时候您再让我帮您购买，我也无能为力呀。您如果担心被推销，我们可以先聊聊您的用车习惯，看看是否真的需要延保。",
-    points: "规避后期用车的风险,延保是真的省钱,电控系统、高压线束,每月也就几百块,无能为力,您的用车习惯",
+    points: "规避风险,没有活动也推荐,真的省钱,每月几百,买不了,用车习惯",
     tips: "用真诚坦白打消顾虑，最后用情感共鸣拉近距离"
   },
   {
@@ -402,7 +402,7 @@ const QUESTIONS = [
     title: "场景八：客户说「快过保再来买/不用今天买」",
     scenario: "客户认为不需要马上购买，想等快过保时再来买延保，或者问后续可不可以再买。",
     answer: "我的建议是，没必要等。因为如果您觉得延保对您有用，现在就可以立刻投保了，到时候价格也没有区别，也不影响生效时间。最重要的是，如果到时候错过了就真的办不了了。之前有好几个跟您一样想法的客户，都是因为日期错过了买不了的，我给您看看这个案例。现在办理下来，您不用总惦记着这事，也不担心错过；中间随时想改主意也没关系，7天内还有免费退保的政策，完全不影响。这样既不耽误您考虑，又能避免真忘了错过，您觉得呢？我帮您办理一个吧。",
-    points: "没必要等,价格也没有区别,错过了就真的办不了,免费退保,不耽误您考虑,帮您办理",
+    points: "没必要等,价格一样,过了真的办不了,7天免费退保,不耽误考虑,帮您办理",
     tips: "7天免费退保是最后成单才说，过程中只强调过保就锁死"
   },
   {
@@ -411,7 +411,7 @@ const QUESTIONS = [
     title: "场景九：客户说「没赶上7折优惠不买」",
     scenario: "客户因为错过了新车7折优惠，觉得现在购买不划算，不想买延保。",
     answer: "特别理解您的心情，错过折扣确实会觉得有点可惜，但延保和车险是一样的，风险越高，价格越贵，所以反而您更应该选择购买延保。它的价值不在于省了多少钱，而在于能帮您挡掉多少未来的麻烦。您看，现在买和当时7折买，核心权益是一模一样的：都是从过保那天起，覆盖高成本的电控、智能部件，原厂配件、厂家认证技师维修，这些实打实的保障一点没少。但如果因为没折扣就等，反而可能错过保期内办理这个最大的权益，过了保，不仅办不了，后续维修还可能掏更多钱。举个例子：万一车载充电机坏了，修一次小一万，这时候您肯定不会觉得当时没赶上7折亏了，而是会想幸好办了保障，没自己掏钱。折扣是一时的，可这些能帮您挡掉几万块风险的权益，过了保期就真没了。咱们先把权益本身弄明白，再决定也不迟，您说呢？",
-    points: "风险越高，价格越贵,核心权益是一模一样的,不仅办不了,车载充电机坏了,折扣是一时的",
+    points: "风险越高价越贵,核心权益完全一样,原厂配件,充电机,错过保期,折扣是一时的",
     tips: "不纠结折扣高低，转移焦点到保障权益本身的价值"
   }
   /* 如需添加更多题目，在此处继续添加 */
@@ -650,28 +650,16 @@ function stopRec() {
   if (txt) txt.textContent = '点击开始语音录入';
 }
 
-/* ─── AI 评分配置 ─── */
-var ARK_KEY   = 'aab0be94-51a8-4916-8046-7ffb4b311c1c';
-var ARK_MODEL = 'doubao-1-5-pro-32k-250115';
-var ARK_URL   = 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
-
 /* ─── 提交评分 ─── */
-async function doSubmit() {
+function doSubmit() {
   if (isRecording) stopRec();
-  const answer = document.getElementById('answerText').value.trim();
+  var answer = document.getElementById('answerText').value.trim();
   if (!answer) { alert('请先输入或录制你的回答'); return; }
-  const btn = document.getElementById('submitBtn');
+  var btn = document.getElementById('submitBtn');
   btn.disabled = true;
-  btn.textContent = 'AI评分中...';
-  let result;
+  btn.textContent = '评分中...';
   try {
-    result = await aiScore(currentQ, answer);
-  } catch(e) {
-    result = keywordScore(currentQ.points, answer);
-    result.aiError = true;
-    result.aiErrorMsg = e.message || String(e);
-  }
-  try {
+    var result = keywordScore(currentQ.points, answer);
     records.push({ qid: currentQ.id, score: result.score, ts: Date.now() });
     lsSet('practiceRecords', JSON.stringify(records));
     renderResult(result, answer);
@@ -684,51 +672,37 @@ async function doSubmit() {
   }
 }
 
-/* ─── AI 评分（豆包） ─── */
-async function aiScore(q, answer) {
-  const prompt = `你是Tesla延保销售话术培训评分助手。
-
-【练习场景】${q.scenario}
-【标准参考答案】${q.answer}
-【核心评分要点】${q.points}
-【学员回答】${answer}
-
-请从以下三个维度评分（总分100分）：
-1. 关键信息覆盖（40分）：是否涵盖了核心卖点和关键论据
-2. 表达自然流畅（30分）：是否贴近真实销售对话，语言自然
-3. 销售推动力（30分）：是否有效引导客户，语气笃定有说服力
-
-只返回如下JSON，不要任何额外内容：
-{"score":总分,"feedback":"一句话总体评价","strengths":["优点1","优点2"],"improvements":["建议1","建议2"]}`;
-
-  const resp = await fetch(ARK_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + ARK_KEY },
-    body: JSON.stringify({ model: ARK_MODEL, messages: [{ role: 'user', content: prompt }], temperature: 0.3 })
-  });
-  if (!resp.ok) throw new Error('API ' + resp.status);
-  const data = await resp.json();
-  const text = data.choices[0].message.content.trim();
-  const json = JSON.parse(text.replace(/^```json\s*/,'').replace(/```$/,''));
-  return { score: json.score, feedback: json.feedback, strengths: json.strengths||[], improvements: json.improvements||[], aiMode: true };
+/* ─── 模糊匹配 ─── */
+function fuzzyMatch(keyword, answer) {
+  // 完全包含，直接通过
+  if (answer.includes(keyword)) return true;
+  // 3字以内不做模糊
+  if (keyword.length <= 3) return false;
+  // 用双字组（bigram）覆盖率判断：60% 以上视为匹配
+  var bigrams = [];
+  for (var i = 0; i < keyword.length - 1; i++) {
+    bigrams.push(keyword.slice(i, i + 2));
+  }
+  var hit = bigrams.filter(function(b) { return answer.includes(b); }).length;
+  return hit / bigrams.length >= 0.6;
 }
 
-/* ─── 关键词评分（网络异常备用） ─── */
+/* ─── 关键词评分（模糊版） ─── */
 function keywordScore(points, answer) {
-  const pts = points.split(',').map(p=>p.trim()).filter(Boolean);
-  const matched = pts.filter(p => answer.includes(p));
-  const missed = pts.filter(p => !answer.includes(p));
-  const score = Math.round(matched.length / Math.max(pts.length,1) * 100);
-  let feedback;
-  if (score>=85) feedback=`非常出色！覆盖了${matched.length}/${pts.length}个关键要点，话术完整专业。`;
-  else if (score>=70) feedback=`表现良好！覆盖了${matched.length}/${pts.length}个关键要点，还有小部分可以补充。`;
-  else if (score>=55) feedback=`基本达标，覆盖了${matched.length}/${pts.length}个关键要点，建议重点加强遗漏的要点。`;
-  else feedback=`需要加强练习，仅覆盖了${matched.length}/${pts.length}个关键要点，请对照标准答案重新练习。`;
+  var pts = points.split(',').map(function(p){ return p.trim(); }).filter(Boolean);
+  var matched = pts.filter(function(p){ return fuzzyMatch(p, answer); });
+  var missed  = pts.filter(function(p){ return !fuzzyMatch(p, answer); });
+  var score = Math.round(matched.length / Math.max(pts.length, 1) * 100);
+  var feedback;
+  if (score >= 85) feedback = '非常出色！关键要点覆盖全面，话术完整专业。';
+  else if (score >= 70) feedback = '表现良好！大部分要点已覆盖，还有小部分可以补充。';
+  else if (score >= 55) feedback = '基本达标，建议重点加强遗漏的要点。';
+  else feedback = '需要加强练习，请对照标准答案重新练习。';
   return {
-    score, feedback, matched, missed,
+    score: score, feedback: feedback, matched: matched, missed: missed,
     total: pts.length,
-    strengths: matched.length ? matched.map(p=>`提到了「${p}」`) : ['暂无匹配要点'],
-    improvements: missed.length ? missed.map(p=>`未提及「${p}」，注意补充`) : ['所有要点均已覆盖，继续保持！'],
+    strengths: matched.length ? matched.map(function(p){ return '提到了「' + p + '」'; }) : ['暂无匹配要点'],
+    improvements: missed.length ? missed.map(function(p){ return '未提及「' + p + '」，注意补充'; }) : ['所有要点均已覆盖，继续保持！'],
   };
 }
 
@@ -790,10 +764,7 @@ function renderResult(r, userAnswer) {
       <div class="score-feedback">${r.feedback}</div>
     </div>
 
-    ${r.aiMode ? `<div class="points-bar-wrap" style="text-align:center;padding:10px 16px;">
-      <span style="font-size:12px;color:#aeaeb2;font-weight:700;letter-spacing:0.5px;">✦ 豆包 AI 智能评分</span>
-    </div>` : `<div class="points-bar-wrap">
-      ${r.aiError ? `<div style="font-size:11px;color:#cc0000;margin-bottom:8px;">AI连接失败（${r.aiErrorMsg}），已使用关键词评分</div>` : ''}
+    <div class="points-bar-wrap">
       <div class="points-bar-header">
         <span class="points-bar-label">关键要点覆盖</span>
         <span class="points-bar-count" style="color:${color}">${matched.length} / ${total} 个</span>
